@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>이름 나이 만나이</title>
+</head>
+<body>
+    <h1 th:text="|이름 : ${name}|"></h1>
+    <h1 th:text="|나이 : ${age}|"></h1>
+    <h1 th:text="|만나이 : ${age - 1}|"></h1>
+</body>
+</html>

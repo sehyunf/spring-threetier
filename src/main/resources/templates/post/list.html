@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" th:href="@{/css/post/list.css}">
+    <title>게시판 리스트 페이지</title>
+    <style>
+        th, td {
+            border: solid 1px black;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="window.location.href='/post/write'">글 작성하기</button>
+    <button onclick="window.location.href='/member/login'">로그인</button>
+    <button onclick="window.location.href='/member/logout'">로그아웃</button>
+    <button onclick="window.location.href='/member/withdraw'">회원탈퇴</button>
+
+    <th:block th:if="${posts != null}"> <!-- if 문이 true 일 때-->
+        <table>
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>조회수</th>
+            </tr>
+            <th:block th:each="post: ${posts}">
+                <tr th:object="${post}">
+                    <td>
+                        <a th:href="@{/post/read(id=${post.id})}">
+                            <span th:text="*{postTitle}"></span>
+                        </a>
+                    </td>
+
+                    <td th:text="*{postContent}"></td>
+                    <td th:text="*{postReadCount}"></td>
+                </tr>
+            </th:block>
+        </table>
+    </th:block>
+    <th:block th:unless="${posts != null}"> <!-- if 문이 false 일 때 -->
+
+    </th:block>
+
+
+
+
+
+</body>
+<script th:inline="javascript">
+    // const member = [[${session.member}]];
+    // const product = [[${session.product}]];
+    // console.log(member);
+    // console.log(product);
+    const posts = [[${posts}]];
+    console.log(posts);
+</script>
+</html>

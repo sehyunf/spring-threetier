@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>이름 화면 출력하기</title>
+</head>
+<body>
+  <h1 th:text="${name} + '님'"></h1>
+
+  <!-- 리터널 대체문법 -->
+  <h1 th:text="|${name}님|"></h1>
+
+</body>
+</html>

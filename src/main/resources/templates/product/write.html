@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>상품 등록</title>
+</head>
+<body>
+    <form th:action="@{/product/write}" method="post" th:object="${productVO}">
+        <input th:field="*{productName}" placeholder="상품 이름" />
+        <input th:field="*{productPrice}" placeholder="상품 가격" />
+        <input th:field="*{productStock}" placeholder="재고 수" />
+        <input th:field="*{productBrand}" placeholder="브랜드" />
+        <button type="button">완료</button>
+    </form>
+
+
+</body>
+<script th:inline="javascript">
+    console.log([[${productVO}]]);
+    //
+    const inputs = document.querySelectorAll("input")
+    const button = document.querySelector("button");
+    const form = document.querySelector("form");
+
+    button.addEventListener("click", () => {
+        for(let input of inputs) {
+            if(!input.value) return alert(`${input.name} 값을 입력해주세요`)
+        }
+        form.submit();
+    })
+</script>
+</html>

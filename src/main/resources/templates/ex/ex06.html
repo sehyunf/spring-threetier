@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>객체로 가져온 상품 출력</title>
+</head>
+<body>
+    <table th:object="${productVO}">
+        <tr>
+            <th>상품명</th>
+            <th>상품가격</th>
+        </tr>
+        <tr>
+            <td th:text="*{productName}"></td>
+            <td th:text="*{productPrice}"></td>
+        </tr>
+    </table>
+</body>
+</html>
