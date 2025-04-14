@@ -11,5 +11,7 @@ public class ProductVO {
     private Long productPrice;
     private Long productStock;
     private String productBrand;
+//    검증할 때 null로 비교하기 위해서 int -> integer
+//    클래스 타입의 기본 값 = null
 
 }

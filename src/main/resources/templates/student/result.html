@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" th:href="@{/css/post/list.css}">
+    <title>게시판 리스트 페이지</title>
+</head>
+<body>
+    <th:block th:if="${students != null}">
+        <table>
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>조회수</th>
+            </tr>
+            <th:block th:each="student: ${students}">
+                <tr th:object="${student}">
+                    <td th:text="*{id}"></td>
+                    <td th:text="*{kor}"></td>
+                    <td th:text="*{eng}"></td>
+                    <td th:text="*{math}"></td>
+                    <td th:text="*{total}"></td>
+                    <td th:text="*{average}"></td>
+                </tr>
+            </th:block>
+        </table>
+    </th:block>
+    <th:block th:unless="${posts != null}"> <!-- if 문이 false 일 때 -->
+
+    </th:block>
+
+
+
+
+
+</body>
+<script th:inline="javascript">
+</script>
+</html>

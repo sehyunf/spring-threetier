@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>상세보기 페이지</title>
+</head>
+<body>
+    <table th:object="${product}">
+        <tr>
+            <th>이름</th>
+            <th>가격</th>
+            <th>재고</th>
+            <th>브랜드</th>
+        </tr>
+        <tr>
+            <td th:text="*{productName}"></td>
+            <td th:text="*{productPrice}"></td>
+            <td th:text="*{productStock}"></td>
+            <td th:text="*{productBrand}"></td>
+        </tr>
+    </table>
+    <a th:href="@{/post/list}">목록으로</a>
+    <a th:href="@{/post/edit(id=${post.id})}">수정하기</a>
+    <a th:href="@{/post/remove(id=${post.id})}">삭제하기</a>
+</body>
+<script th:inline="javascript">
+    console.log([[${post}]]);
+</script>
+</html>

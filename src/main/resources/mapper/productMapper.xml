@@ -6,4 +6,15 @@
         VALUES (SEQ_PRODUCT.NEXTVAL, #{productName}, #{productPrice}, #{productStock}, #{productBrand})
     </insert>
 
+    <select id="selectAll" resultType="ProductVO">
+        SELECT ID, PRODUCT_NAME, PRODUCT_PRICE, PRODUCT_STOCK, PRODUCT_BRAND
+        FROM TBL_PRODUCT
+    </select>
+
+    <update id="update" parameterType="ProductVO">
+        UPDATE TBL_PRODUCT
+        SET PRODUCT_NAME = #{productName}, PRODUCT_PRICE = #{productPrice}, PRODUCT_STOCK = #{productStock}, PRODUCT_BRAND = #{productBrand}
+        WHERE ID = #{id}
+    </update>
+
 </mapper>

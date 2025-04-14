@@ -30,9 +30,7 @@ public class PostController {
 //    게시물 한개 조회
     @GetMapping("read")
     public void goToRead(@RequestParam("id") Long id, Model model) {
-        model.addAttribute("post", postService.getPostById(id).orElseThrow(() -> {
-            throw new RuntimeException("post not found");
-        }));
+        model.addAttribute("post", postService.getPostById(id).orElseThrow(() -> new RuntimeException("post not found")));
     }
 
     @GetMapping("write")
@@ -70,6 +68,5 @@ public class PostController {
         postService.delete(id);
         return new RedirectView("/post/list");
     }
-
 
 }
