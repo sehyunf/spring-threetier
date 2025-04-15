@@ -13,8 +13,11 @@
         <table>
             <tr>
                 <th>번호</th>
-                <th>제목</th>
-                <th>조회수</th>
+                <th>국어</th>
+                <th>영어</th>
+                <th>수학</th>
+                <th>총점</th>
+                <th>평균</th>
             </tr>
             <th:block th:each="student: ${students}">
                 <tr th:object="${student}">
